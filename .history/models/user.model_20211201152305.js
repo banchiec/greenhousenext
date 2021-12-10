@@ -1,10 +1,10 @@
 const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
-    // name: {
-    //     type: String,
-    //     required: true
-    // },
+    name: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
@@ -18,10 +18,10 @@ const userSchema = new Schema({
         enum: ['user', 'admin'],
         default: 'user',
     },
-    // since: {
-    //     type: Date,
-    //     default: Date.now()
-    // },
+    since: {
+        type: Date,
+        default: Date.now()
+    },
 }, { timestamps: true })
 
 global.User = global.User || model("User", userSchema)
