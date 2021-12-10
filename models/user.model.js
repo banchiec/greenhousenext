@@ -17,11 +17,13 @@ const userSchema = new Schema({
         type: String,
         enum: ['user', 'admin'],
         default: 'user',
-    },
+    }, 
     since: {
-        type: Date,
+        type: Date,  
+        required: true,
         default: Date.now()
-    },
+    }
+   
 
 })
 
