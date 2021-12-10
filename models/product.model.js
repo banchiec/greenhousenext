@@ -3,26 +3,33 @@ import { Schema, model } from 'mongoose'
 const productSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required:true 
     },
     price: {
-        type: Number,
-        required: true,
+        type: Number, 
+        required: true
+       
     },
     category: {
-        // array de string indicando las categorias
         type: String,
-        required: true,
-    },
+        enum: ['Vestidos', 'Lalkas'],
+        required: true
+
+    }, 
+    size: {
+        type: String, 
+        enum: ['XL', ''], 
+        required: true
+    }, 
     description: {
-        type: String,
-        required: true,
-    },
-    image: {
-        // array de imagenes
-        type: String,
-        required: true,
+        type: String, 
+        required: true  
+    }, 
+    photo: {
+        type: String, 
+        required: true
     }
+    
 })
 
 global.Product = global.Product || model("Product", productSchema)
