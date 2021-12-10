@@ -6,7 +6,7 @@ const newProduct = async (req, res) => {
     try {
       const products = await Product.find()
       if (!products) {
-        return res.status(500).json("List null")
+        return res.status(500).json("Lista vacia")
       }
       else {
         return res.status(200).json(products)
