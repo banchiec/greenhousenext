@@ -7,8 +7,7 @@ const productSchema = new Schema({
     },
     price: {
         type: Number,
-        required: true
-
+        required: true,
     },
     beloning: {
         idCategory: {
@@ -48,7 +47,7 @@ const productSchema = new Schema({
         }
     ],
 
-}, { timestamps: true })
+}, timestamp: true)
 
 global.Product = global.Product || model("Product", productSchema)
 export default global.Product

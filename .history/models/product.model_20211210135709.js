@@ -7,8 +7,7 @@ const productSchema = new Schema({
     },
     price: {
         type: Number,
-        required: true
-
+        required: true,
     },
     beloning: {
         idCategory: {
@@ -37,18 +36,16 @@ const productSchema = new Schema({
     photos: [
         {
             type: String,
-            default: "alexei.png",
+            default: "alexei.png"
             require: true
         }
     ],
-    colors: [
-        {
-            type: String,
-            require: true
-        }
-    ],
-
-}, { timestamps: true })
+    image: {
+        // array de imagenes
+        type: String,
+        required: true,
+    }
+})
 
 global.Product = global.Product || model("Product", productSchema)
 export default global.Product
