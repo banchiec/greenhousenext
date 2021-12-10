@@ -47,7 +47,7 @@ const productSchema = new Schema({
         }
     ],
 
-}, { timestamps: true })
+}, timestamps: true)
 
 global.Product = global.Product || model("Product", productSchema)
 export default global.Product
