@@ -15,7 +15,7 @@ const productSchema = new Schema({
         enum: ['Vestidos', 'Lalkas'],
         required: true
 
-    }, 
+    },  
     size: {
         type: String, 
         enum: ['XL', ''], 
@@ -28,7 +28,7 @@ const productSchema = new Schema({
     photo: {
         type: String, 
         required: true
-    }
+    }, 
     
 })
 

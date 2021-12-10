@@ -5,9 +5,6 @@ import Product from '../../../models/product.model'
 
  
 const newProduct = (req, res) => { 
- 
-
-
   const product = req.body;
   console.log(product)
     
