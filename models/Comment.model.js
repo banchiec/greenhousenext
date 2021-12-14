@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
  
 
-const ReviewModel = new Schema({
+const CommentModel = new Schema({
     product: {
         type: String, 
         ref: "Product"
@@ -22,6 +22,6 @@ const ReviewModel = new Schema({
 }) 
 
 
-global.Review = global.Review || model("Review", ReviewModel) 
+global.Comment = global.Comment || model("Comment", CommentModel) 
 
-export default global.Review
+export default global.Comment
