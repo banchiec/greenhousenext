@@ -1,24 +1,27 @@
 import { Schema, model } from "mongoose";
 
+ 
+
 const ReviewModel = new Schema({
     product: {
-        type: String,
+        type: String, 
         ref: "Product"
-    },
+    }, 
     rating: {
         type: String
-    },
+    }, 
     description: {
         type: String
-    },
+    }, 
     user: {
-        type: String,
+        type: String, 
         ref: 'User'
     }
 }, {
-    timestamps: true
-})
+   timestamps: true 
+}) 
 
-global.Review = global.Review || model("Comment", ReviewModel)
+
+global.Review = global.Review || model("Review", ReviewModel) 
 
 export default global.Review

@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const ReviewModel = new Schema({
+const commentModel = new Schema({
     product: {
         type: String,
         ref: "Product"
@@ -19,6 +19,6 @@ const ReviewModel = new Schema({
     timestamps: true
 })
 
-global.Review = global.Review || model("Comment", ReviewModel)
+global.Comment = global.Review || model("Review", commentModel)
 
-export default global.Review
+export default global.Comment

@@ -1,6 +1,5 @@
-import Review from '../../../models/Review.model'
+import Review from "../../../models/review.model";
 import connectDB from "../../../services/mongoose.services";
-
 
 
 const Comment = (req, res) => {

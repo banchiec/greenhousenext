@@ -19,6 +19,7 @@ const ReviewModel = new Schema({
     timestamps: true
 })
 
-global.Review = global.Review || model("Comment", ReviewModel)
+
+global.Review = global.Review || model("Review", ReviewModel)
 
 export default global.Review

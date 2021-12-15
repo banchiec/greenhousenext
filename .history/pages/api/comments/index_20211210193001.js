@@ -1,20 +1,19 @@
-import Review from '../../../models/Review.model'
 import connectDB from "../../../services/mongoose.services";
+import Comment from '../../../models/comment.model.js'
 
 
-
-const Comment = (req, res) => {
+const handler = (req, res) => {
     const review = req.body;
     console.log(review);
     if (req.method === 'POST') {
-        Review.create(review)
+        Comment.create(review)
             .then((review) => {
                 return res.status(200).json(review)
             }).catch(err => {
                 return res.status(500).json(err)
             })
     } else if (req.method === 'GET') {
-        Review.find()
+        Comment.find()
             .then((review) => {
                 return res.status(200).json(review)
             })
@@ -27,4 +26,4 @@ const Comment = (req, res) => {
 }
 
 
-export default connectDB(Comment)
+export default connectDB(handler)

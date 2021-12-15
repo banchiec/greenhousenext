@@ -1,5 +1,5 @@
-import Review from '../../../models/Review.model'
 import connectDB from "../../../services/mongoose.services";
+import Comment from '../../../models/comment.model.js'
 
 
 

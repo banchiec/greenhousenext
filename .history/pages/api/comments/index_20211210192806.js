@@ -1,9 +1,9 @@
-import Review from '../../../models/Review.model'
 import connectDB from "../../../services/mongoose.services";
+import Comment from '../../../models/comment.model.js'
 
 
 
-const Comment = (req, res) => {
+const handler = (req, res) => {
     const review = req.body;
     console.log(review);
     if (req.method === 'POST') {
@@ -27,4 +27,4 @@ const Comment = (req, res) => {
 }
 
 
-export default connectDB(Comment)
+export default connectDB(handler)
