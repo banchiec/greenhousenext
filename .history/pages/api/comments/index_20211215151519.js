@@ -1,8 +1,9 @@
 import Comment from "../../../models/Comment.model";
 import connectDB from "../../../services/mongoose.services";
 
-const allComments = async (req, res) => {
+const allComents = async (req, res) => {
     const { userId } = req.body;
+
     if (req.method === 'GET') {
         const user = await Comment.findById(userId)
         if (!user) {

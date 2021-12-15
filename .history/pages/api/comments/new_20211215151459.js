@@ -1,6 +1,7 @@
 import Comment from "../../../models/Comment.model";
 import connectDB from "../../../services/mongoose.services";
 
+
 const newComment = async (req, res) => {
   const { userId } = req.body;
   if (req.method === 'POST') {
@@ -17,4 +18,6 @@ const newComment = async (req, res) => {
     }
   }
 }
+
+
 export default connectDB(newComment)
