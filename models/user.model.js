@@ -17,7 +17,11 @@ const userSchema = new Schema({
         type: String,
         enum: ['user', 'admin'],
         default: 'user',
-    }, 
+    },  
+    favorites: [{
+        type: Schema.Types.Object, 
+        ref: 'Product'
+    }]
     // since: {
     //     type: Date,
     //     default: Date.now()
