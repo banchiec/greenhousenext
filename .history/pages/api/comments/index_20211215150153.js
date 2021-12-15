@@ -10,9 +10,15 @@ const allComents = async (req, res) => {
         if (!userId) {
             return res.status(500).json("User not found, you need register")
         } else {
-            const comments = await Comment.find()
-            return res.status(200).json(comments)
+
         }
+        Comment.find()
+            .then((data) => {
+                return res.status(200).json(data)
+            })
+            .catch(err => {
+                return res.status(500).json(err)
+            })
     } else {
         res.status(422).send('req_method_not_supported')
     }
