@@ -16,6 +16,7 @@ const userSchema = new Schema({
     },
     favorites: {
         type: Schema.Types.ObjectId,
+        required: true
     },
 }, { timestamps: true })
 

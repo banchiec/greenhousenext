@@ -9,10 +9,11 @@ const handler = async (req, res) => {
         try {
             const category = await Category.findOne(name)
             if (!category) {
+
                 const newCategory = await Category.create(req.body)
                 return res.status(200).json(newCategory)
             } else {
-                return res.status(500).json("Category exist")
+
             }
         } catch (error) {
             return res.status(500).json(error)

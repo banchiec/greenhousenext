@@ -15,7 +15,10 @@ const userSchema = new Schema({
         default: 'user',
     },
     favorites: {
-        type: Schema.Types.ObjectId,
+        name: {
+            type: Schema.Types.ObjectId,
+            required: true
+        }
     },
 }, { timestamps: true })
 

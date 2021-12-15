@@ -3,17 +3,11 @@ import Category from '../../../models/category.model'
 
 
 const handler = async (req, res) => {
-    const { name, subCategory } = req.body
 
     if (req.method === 'POST') {
         try {
-            const category = await Category.findOne(name)
-            if (!category) {
-                const newCategory = await Category.create(req.body)
-                return res.status(200).json(newCategory)
-            } else {
-                return res.status(500).json("Category exist")
-            }
+            const newCategory = await Category.create(req.body)
+            return res.status(200).json(newCategory)
         } catch (error) {
             return res.status(500).json(error)
         }

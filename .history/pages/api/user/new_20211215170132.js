@@ -5,7 +5,6 @@ import User from '../../../models/user.model'
 const newUser = (req, res) => {
   if (req.method === 'POST') {
     const { name, email, password, favorites } = req.body
-    console.log(favorites)
     User.findOne({ email })
       .then(user => {
         if (!user) {
@@ -17,7 +16,7 @@ const newUser = (req, res) => {
               return res.status(500, message).json({ err, message: "Error creating user" })
             })
         } else {
-          return res.status(500).json("user exist")
+          return res.status(500).json(error)
         }
       })
   } else {

@@ -1,15 +1,17 @@
 import connectDB from "../../../services/mongoose.services"
 import User from '../../../models/user.model'
-// const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
+
+
+
 
 const newUser = (req, res) => {
   if (req.method === 'POST') {
-    const { name, email, password, favorites } = req.body
-    console.log(favorites)
+    const { name, email, password } = req.body;
     User.findOne({ email })
       .then(user => {
         if (!user) {
-          User.create({ name, email, password, favorites })
+          User.create({ name, email, password })
             .then(data => {
               return res.status(200).json(data)
             })
@@ -17,15 +19,12 @@ const newUser = (req, res) => {
               return res.status(500, message).json({ err, message: "Error creating user" })
             })
         } else {
-          return res.status(500).json("user exist")
+          return res.status(500, message).json({ err, message: "Error creating " })
         }
       })
-  } else {
-    res.status(402).json("Method not supported")
   }
 }
 
-export default connectDB(newUser)
 // Async await  
 
 

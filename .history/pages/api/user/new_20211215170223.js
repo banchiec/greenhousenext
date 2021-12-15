@@ -5,7 +5,6 @@ import User from '../../../models/user.model'
 const newUser = (req, res) => {
   if (req.method === 'POST') {
     const { name, email, password, favorites } = req.body
-    console.log(favorites)
     User.findOne({ email })
       .then(user => {
         if (!user) {

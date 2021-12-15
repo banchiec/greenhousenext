@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
+    // name: {
+    //     type: String,
+    //     required: true
+    // },
     email: {
         type: String,
         required: true
@@ -16,6 +20,7 @@ const userSchema = new Schema({
     },
     favorites: {
         type: Schema.Types.ObjectId,
+        required: true
     },
 }, { timestamps: true })
 
