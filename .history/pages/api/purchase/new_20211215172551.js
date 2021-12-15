@@ -1,12 +1,12 @@
 import connectDB from "../../../services/mongoose.services";
-import Purchase from '../../../models/purchase.model'
+import Purchase from '../../../models/category.model'
 
 
 const newPurchase = async (req, res) => {
     console.log(req.body)
     if (req.method === 'POST') {
         try {
-            const newPurchase = await Purchase.create(req.body)
+            const newPurchase = await Purchase.create({ number, userId, productId, discounts, amount })
             return res.status(200).json(newPurchase)
         } catch (error) {
             return res.status(500).json(error)

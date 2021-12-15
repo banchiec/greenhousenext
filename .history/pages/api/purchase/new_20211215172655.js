@@ -6,7 +6,7 @@ const newPurchase = async (req, res) => {
     console.log(req.body)
     if (req.method === 'POST') {
         try {
-            const newPurchase = await Purchase.create(req.body)
+            const newPurchase = await Purchase.create({ number, userId, productId, discounts, amount })
             return res.status(200).json(newPurchase)
         } catch (error) {
             return res.status(500).json(error)

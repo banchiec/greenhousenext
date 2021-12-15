@@ -1,5 +1,5 @@
 import connectDB from "../../../services/mongoose.services";
-import Purchase from '../../../models/purchase.model'
+import Purchase from '../../../models/category.model'
 
 
 const newPurchase = async (req, res) => {
