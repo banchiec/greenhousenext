@@ -15,7 +15,15 @@ const purchaseSchema = new Schema({
         ref: "Product"
     }],
     discounts: [{
-        type: Schema.Types.ObjectId,
+        name: {
+            type: number,
+            ref: "Discount"
+
+        },
+        amount: {
+
+        }
+
     }],
     amount: {
         type: Number,
