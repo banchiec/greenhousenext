@@ -22,4 +22,6 @@ const getUserData =   (req, res) => {
 
 
 
-export default connectDB(getUserData)
+export default connectDB(getUserData)   
+
+

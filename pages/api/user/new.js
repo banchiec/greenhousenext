@@ -1,10 +1,7 @@
 
 import User from '../../../models/user.model'
 import connectDB from '../../../services/mongoose.services';
-
-
-
-
+ 
 
 const newUser = (req, res) => {    
     

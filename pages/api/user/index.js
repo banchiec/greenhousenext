@@ -1,7 +1,7 @@
 import connectDB from "../../../services/mongoose.services";
 import User from '../../../models/user.model'
 
-const allCategories = async (req, res) => {
+const allUsers = async (req, res) => {
     if (req.method === 'GET') {
         try {
             const users = await User.find()
@@ -14,4 +14,4 @@ const allCategories = async (req, res) => {
     }
 }
 
-export default connectDB(allCategories) 
+export default connectDB(allUsers)  
