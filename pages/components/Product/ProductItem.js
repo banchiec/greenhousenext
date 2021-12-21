@@ -21,6 +21,6 @@ export default function ProductItem({ name, price, beloning, description, size, 
     return <>
         <h2>{name}</h2>
         <p>{price}</p>
-        <p>{description}</p>
+        <p>{description}</p> 
     </>
 }
