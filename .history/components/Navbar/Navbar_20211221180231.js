@@ -11,7 +11,7 @@ export const Navbar = () => {
     const { data: session } = useSession()
     const [currentUser, setCurrentUser] = useState({})
     const getCurrentUser = () => {
-        console.log((session?.user?.email))
+        existUser((session?.user?.email))
     }
     useEffect(() => {
         getCurrentUser()

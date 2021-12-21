@@ -5,17 +5,13 @@ import { ShoppingCartIcon } from "@heroicons/react/outline"
 import { LoginIcon } from "@heroicons/react/outline"
 import { useSession, signIn, signOut } from "next-auth/react"
 import { existUser } from "../../utils/auth.utils"
-import { useEffect, useState } from "react"
 
 export const Navbar = () => {
     const { data: session } = useSession()
-    const [currentUser, setCurrentUser] = useState({})
     const getCurrentUser = () => {
-        console.log((session?.user?.email))
+        signIn()
+        console.log("crear usuario")
     }
-    useEffect(() => {
-        getCurrentUser()
-    }, [])
     return (
         <ContainerNavbar>
             <img src="logo.png" alt="Imagen logo" />
@@ -23,11 +19,11 @@ export const Navbar = () => {
                 {
                     !session ?
                         <LoginIcon onClick={() => {
-                            signIn()
+                            getCurrentUser()
                         }
-                        } /> : (
-                            <img src={session?.user?.image} alt={session?.user?.name} onClick={() => signOut()} />
-                        )}
+                        } /> :
+                        <img src={session?.user?.image} alt={session?.user?.name} onClick={() => signOut()} />
+                }
                 <ShoppingCartIcon />
             </div>
         </ContainerNavbar>

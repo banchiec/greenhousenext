@@ -16,7 +16,7 @@ export const ContainerNavbar = styled.nav`
         align-items: center;
         img{
             width: 30px;
-            border: 1px solid whitesmoke;
+            border: 1px solid green;
             height: 30px;
             border-radius: 50%;
         }

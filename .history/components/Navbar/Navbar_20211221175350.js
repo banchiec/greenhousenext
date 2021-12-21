@@ -5,16 +5,17 @@ import { ShoppingCartIcon } from "@heroicons/react/outline"
 import { LoginIcon } from "@heroicons/react/outline"
 import { useSession, signIn, signOut } from "next-auth/react"
 import { existUser } from "../../utils/auth.utils"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 export const Navbar = () => {
     const { data: session } = useSession()
-    const [currentUser, setCurrentUser] = useState({})
     const getCurrentUser = () => {
-        console.log((session?.user?.email))
+        console.log("objet")
+        console.log(existUser(session?.user?.email))
     }
     useEffect(() => {
         getCurrentUser()
+        console.log("objet")
     }, [])
     return (
         <ContainerNavbar>

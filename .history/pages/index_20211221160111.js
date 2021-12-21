@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+      {console.log(session?.user)}
     </div>
   )
 }
