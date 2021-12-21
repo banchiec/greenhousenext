@@ -9,10 +9,11 @@ export default function Home() {
 
   const { data: session } = useSession()
   return (
-    <div>
+    <>
       <Navbar />
-      {console.log(session?.user)}
-    </div>
+      {console.log(session.user)}
+      <h1>Hola</h1>
+    </>
   )
 }
 
