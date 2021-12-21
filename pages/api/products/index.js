@@ -4,7 +4,8 @@ import Product from '../../../models/product.model'
 const allProduct = async (req, res) => {
   if (req.method === 'GET') {
     try {
-      const products = await Product.find()
+      const products = await Product.find()     
+      .populate('beloning') 
       if (!products) {
         return res.status(500).json("List null")
       }
@@ -20,4 +21,8 @@ const allProduct = async (req, res) => {
     res.status(422).send('req_method_not_supported')
   }
 }
-export default connectDB(allProduct)
+export default connectDB(allProduct) 
+
+
+
+

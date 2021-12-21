@@ -6,7 +6,7 @@ const categoryDetails = async (req, res) => {
     const { name, subCategory } = req.body
     if (req.method === 'GET') {
         try {
-            const category = await Category.findById(id)
+            const category = await Category.findById(id) 
             return !category ?
                 res.status(402).json("Category not found") :
                 res.status(200).json(category)
@@ -36,4 +36,8 @@ const categoryDetails = async (req, res) => {
     }
 }
 
-export default connectDB(categoryDetails) 
+export default connectDB(categoryDetails)        
+
+
+
+
