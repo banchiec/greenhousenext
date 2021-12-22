@@ -8,21 +8,19 @@ const productSchema = new Schema({
     price: {
         type: Number,
         required: true
-
     },
     beloning: {
         idCategory: {
-            // array de string indicando las categorias
             type: Schema.Types.ObjectId,
-            ref: 'Category',
-            required: true,
+            ref: 'Category', 
+            required: true
+          
         },
         subCategory: {
-            type: String,
+            type: String, 
             required: true
         }
-    },
-
+    }, 
     description: {
         type: String,
         required: true,
