@@ -1,0 +1,17 @@
+import UserServices from "../services/user.service"
+
+export const existUser = (user) => {
+    const userServices = new UserServices()
+    const dataUser = {}
+    userServices.createUser(user)
+        .then((data) => {
+            dataUser = data
+        })
+        .catch(error => console.log(error))
+    return data
+
+}
+
+export const getUser = (user) => {
+    const currentUser = user
+}
