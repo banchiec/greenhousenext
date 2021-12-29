@@ -41,7 +41,8 @@ const productSchema = new Schema({
     colors: [
         {
             type: String,
-            require: true
+            require: true, 
+            default: ["XL, XXL, L, N"]
         }
     ],
 }, { timestamps: true })
