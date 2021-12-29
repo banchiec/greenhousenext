@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript} from 'next/document';
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from 'styled-components';
 
@@ -20,7 +20,8 @@ export default class MyDocument extends Document {
     }
 
     render() {
-        return (
+        return ( 
+            <>
             <html>
                 <Head>
                     <title>CASAVERDE COSTURA</title>
@@ -31,7 +32,8 @@ export default class MyDocument extends Document {
                     <Main />
                     <NextScript />
                 </body>
-            </html >
+            </html > 
+            </>
         );
     }
 }
