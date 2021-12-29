@@ -22,6 +22,7 @@ export const Collections = () => {
 
     useEffect(() => {
         getCategories()
+
     }, [])
 
 

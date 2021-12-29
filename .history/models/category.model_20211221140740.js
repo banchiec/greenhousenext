@@ -9,10 +9,6 @@ const categorySchema = new Schema({
         type: String,
         required: true
     }],
-    photo: {
-        type: String,
-        required: true
-    }
 }, { timestamps: true })
 
 global.Category = global.Category || model("Category", categorySchema)

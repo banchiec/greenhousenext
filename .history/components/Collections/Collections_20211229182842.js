@@ -21,7 +21,8 @@ export const Collections = () => {
     }
 
     useEffect(() => {
-        getCategories()
+        getProducts()
+
     }, [])
 
 

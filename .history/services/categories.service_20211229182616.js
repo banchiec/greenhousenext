@@ -6,7 +6,6 @@ class CategoriesService {
             baseURL: `${process.env.REACT_APP_API_URL}/category`
         })
     }
-    getCategories = () => this.instance.get('/')
     getCategoryById = (id) => this.instance.get(`/${id}`)
 }
 

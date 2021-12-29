@@ -1,35 +1,35 @@
 import { useState, useEffect } from "react"
 import Link from 'next/link'
-import CategoriesService from "../../services/categories.service"
 import ProductsService from "../../services/products.service"
 import { CollectionItem } from "./CollectionItem/CollectionItem"
 
 export const Collections = () => {
-    const [categories, setCategories] = useState()
+    const [products, setProducts] = useState()
 
-    const categoriesService = new CategoriesService()
+    const productsService = new ProductsService()
 
-    const getCategories = () => {
-        categoriesService.getCategories()
+    const getProducts = () => {
+        productsService.getProducts()
             .then((res) => {
-                console.log(res.data)
                 setProducts(res.data)
             })
             .catch((error) => {
 
             })
     }
+    console.log(products)
 
     useEffect(() => {
-        getCategories()
+        getProducts()
+
     }, [])
 
 
     return (
         <section>
-            {
+            <Link href="/shop">
                 <CollectionItem />
-            }
+            </Link>
 
         </section>
     )

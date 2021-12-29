@@ -19,9 +19,11 @@ export const Collections = () => {
 
             })
     }
+    console.log(products)
 
     useEffect(() => {
-        getCategories()
+        getProducts()
+
     }, [])
 
 

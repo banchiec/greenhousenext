@@ -37,12 +37,12 @@ export default function Home() {
 
     <div className='ContainerApp'>
       <Navbar />
+      <Collections />
       {
         currentUser?.name &&
         <h1>{currentUser.name}</h1>
       }
-      {/*shop <ShowCase /> */}
-      <Collections />
+      {/* <ShowCase /> */}
     </div >
   )
 }

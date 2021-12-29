@@ -1,6 +1,6 @@
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { Navbar } from '../components/Navbar/Navbar'
-// import { ShowCase } from '../components/Showcase/ShowCase'
+import { ShowCase } from '../components/Showcase/ShowCase'
 import { useEffect, useState } from 'react'
 import { Collections } from '../components/Collections/Collections'
 
@@ -37,12 +37,12 @@ export default function Home() {
 
     <div className='ContainerApp'>
       <Navbar />
+      <Collections />
       {
         currentUser?.name &&
         <h1>{currentUser.name}</h1>
       }
-      {/*shop <ShowCase /> */}
-      <Collections />
+      {/* <ShowCase /> */}
     </div >
   )
 }
