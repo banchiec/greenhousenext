@@ -6,7 +6,7 @@ export const ButtonSizeItem = ((items) => {
     return (
         <>
             {
-                items?.buttons?.map(item => {
+                items?.buttons.map(item => {
                     return (
                         <>
                             <Button>{item}</Button>
@@ -14,6 +14,7 @@ export const ButtonSizeItem = ((items) => {
                     )
                 })
             }
+
         </>
     )
 

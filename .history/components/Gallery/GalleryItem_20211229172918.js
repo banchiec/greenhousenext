@@ -9,7 +9,7 @@ export const GalleryItem = ({ items }) => {
             {
                 items.map((item, i) => {
                     return (
-                        <img src={item} key={i} alt="vestido"></img>
+                        <img src={item} key={i} alt="vestido" />
                     )
                 })
             }

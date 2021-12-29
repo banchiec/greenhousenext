@@ -42,7 +42,7 @@ export default function Home() {
         currentUser?.name &&
         <h1>{currentUser.name}</h1>
       }
-      {/* <ShowCase /> */}
+      <ShowCase />
     </div >
   )
 }
