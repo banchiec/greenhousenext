@@ -37,10 +37,7 @@ const productSchema = new Schema({
                 type: String,
                 default: "alexei.jpg",
                 require: true
-            },
-            nameColor: {
-                type: String,
-                requered: true
+
             }
         }
     ],
