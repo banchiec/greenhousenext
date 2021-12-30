@@ -2,7 +2,6 @@
 export const GalleryItem = ({items}) => {  
      
     console.log(items)
-
     return(
         <>  
  

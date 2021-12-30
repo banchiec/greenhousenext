@@ -30,15 +30,8 @@ export const Navbar = ({ currentSession }) => {
         </ContainerNavbar>
     )
 }
-<<<<<<< HEAD
- 
-
-
-
-=======
 Navbar.getInitialProps = async (context) => {
     return {
         currentSession: await getSession(context)
     }
 }
->>>>>>> 72f042935e22fb06e4fa98af92e8552f08f4d386

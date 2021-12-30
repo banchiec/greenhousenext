@@ -1,21 +1,31 @@
   
-  import { Button } from "../Product/Product.styled"
+  import { Button, SizeButton } from "../Product/Product.styled" 
+import { useEffect, useState } from "react" 
+
+ export const ButtonSizeItem = ((item) => {   
  
- export const ButtonSizeItem = ((items) => { 
+     const [active, setActive] = useState("false"); 
+
+
+     console.log(item.buttons)
     
     return(
         <>   
-        {
-            items.buttons.map(item => {
-                return( 
-                    <> 
-                    <Button>{item}</Button> 
-                    </>
-                )
-            })
+        { 
+             item.buttons.map((item, i ) => { 
+                 return( 
+                     <>
+                         <SizeButton key={i} className={active === i ? "danger" : "null"} onClick={(() => setActive(i))}>{item}</SizeButton>
+                     </>
+                 )
+             })
+           
         }
 
         </>
     )
     
 })
+
+
+

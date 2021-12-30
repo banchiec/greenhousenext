@@ -3,25 +3,28 @@ import styled, { css } from 'styled-components'
 
   
  export const Container = styled.div` 
-  @media screen and (max-width: 450px){
+  @media screen and (max-width: 510px){
     padding: 0 20px;
     margin-top: 28px; 
+  }  
+
+  @media screen and (min-width: 560px){
+    display: flex;
   }
+
+
    
  `
  
  export const Button = styled.a`
-     @media screen and (max-width: 450px){
-     position: absolute;  
-     top: 50%;
-  }
+     padding-top: 20px
  `  
  
 
 
  
  export const SelectSizeTitle  = styled.p `
-  @media screen and (max-width: 450px){
+  @media screen and (max-width: 510px){
     font-family: 'Roboto Mono'; 
     font-size: 0.625rem;  
     margin-top: -50px;   
@@ -35,7 +38,7 @@ import styled, { css } from 'styled-components'
 
 
 export const SelectColorTitle = styled.p`
-  @media screen and (max-width: 450px){
+  @media screen and (max-width: 510px){
     font-family: 'Roboto Mono'; 
     font-size: 0.625rem;  
     margin-top: 10px;
@@ -51,9 +54,9 @@ export const SelectColorTitle = styled.p`
 
  export  const Category = styled.h3` 
   
-  @media screen and (max-width: 450px){
+  @media screen and (max-width: 600px){
      position: absolute;  
-     margin-top: 30px;
+     top: 15%;
   }
 
   font-family: 'Roboto Mono' ;
@@ -70,7 +73,7 @@ export const SelectColorTitle = styled.p`
 export const SizeButton = styled.button`
   {
      width: 54.13px;   
-     height: 40.96px;
+     height: 40.96px; 
      border: 1px solid #131212;   
      color:  ${({ color }) => color || "white" }
      font-family: 'Alegreya Sans';
@@ -85,15 +88,22 @@ ${props =>
     props.primary &&
     css`
     height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    display: inline-block;
- 
+    width: 48px; 
+    height: 48px;
+       border-radius: 100px;
+    display: inline-block; 
     `};
 `; 
 
+
+ 
  
 
+export const ButtonCard = styled.div`     
+    
+
+        
+`
 
 
 export const ButtonWrapper = styled.div`

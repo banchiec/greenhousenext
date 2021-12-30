@@ -5,7 +5,8 @@ import { Button } from "../Button/Button";
 import { ButtonSize } from "../ButtonSize/ButtonSize";
 import { Container, Category, SizeButton, ButtonWrapper, SelectSizeTitle, SelectColorTitle, ColorWrapper } from "./Product.styled"; 
 import Image from 'next/image'
-import { Gallery } from "../Gallery/Gallery";
+import { Gallery } from "../Gallery/Gallery"; 
+import { Colors } from "../Colors/Colors";
 
  
 const myLoader = ({ src, width, quality }) => {
@@ -19,8 +20,7 @@ const myLoader = ({ src, width, quality }) => {
 
 export default function Product({name, beloning, size, price, description, photos, colors}) {
     let categoryService = new CategoriesService()
-    const [category, setCategory] = useState([])      
-    const [active, setActive] = useState("false");           
+    const [category, setCategory] = useState([])                
     console.log(category)      
     const { idCategory, subCategory } = beloning   
      
@@ -36,43 +36,28 @@ export default function Product({name, beloning, size, price, description, photo
     }, [])      
   
      
-    const button = ((e) => {
-        console.log(e)
-    })
+
  
-  
-  
-
-
     return (
         <>
             <> 
-
-       
-
                 {
                     category ? (
                         <> 
                             <Container>
-
                                 <Category>{category.name}<br /> {name} </Category> 
-                                <Gallery items={photos}/>
+                                <Gallery   items={photos}/> 
+                                 <div>
                                 <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle>
                                 <ButtonWrapper> 
-                                <ButtonSize items={size} ></ButtonSize>
-                                   
-                                </ButtonWrapper>
-
+                                    <ButtonSize  buttons={size} ></ButtonSize>
+                                </ButtonWrapper> 
                                 <SelectColorTitle>SELECT COLOR </SelectColorTitle>  
                                 <ButtonWrapper>
-                                {colors.map((item, i) => {    
-                                    return( 
-                                        <>  
-                                            <Button onClick={button}   primary style={{ backgroundColor: `${item}`}}  key={i} name={item} ></Button>    
-                                        </>
-                                    ) 
-                                })} 
-                                </ButtonWrapper>
+                                <Colors palitrs={colors} ></Colors>                               
+                                </ButtonWrapper> 
+                              
+                                </div>  
 
                             </Container>
                         </>
