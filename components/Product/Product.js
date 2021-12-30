@@ -38,12 +38,13 @@ export default function Product({ name, beloning, size, price, description, phot
 
  
     return (
-        <>
+        <>   
+
             <> 
                 {
                     category ? (
                         <>
-                            <Container>
+                            <Container >
                                 <Category>{category.name}<br /> {name} </Category> 
                                 <Gallery   items={photos}/> 
                                  <div>
