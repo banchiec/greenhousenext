@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
  export const ButtonSizeItem = ((item) => {   
  
-     const [active, setActive] = useState("false"); 
+     const [active, setActive] = useState("false") 
 
 
      console.log(item.buttons)
@@ -18,14 +18,9 @@ import { useEffect, useState } from "react"
                          <SizeButton key={i} className={active === i ? "danger" : "null"} onClick={(() => setActive(i))}>{item}</SizeButton>
                      </>
                  )
-             })
+             })     
            
-        }
-
-        </>
-    )
-    
-})
-
-
-
+        } 
+        </> 
+    ) 
+ })

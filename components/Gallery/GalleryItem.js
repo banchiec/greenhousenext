@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-export const GalleryItem = ({items}) => {  
-     
+export const GalleryItem = ({ items }) => {
+
     console.log(items)
     return(
         <>  
@@ -16,7 +16,7 @@ export const GalleryItem = ({items}) => {
         
         </>
     )
- 
 
-     
+
+
 }

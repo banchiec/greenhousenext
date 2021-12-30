@@ -12,15 +12,15 @@ const productSchema = new Schema({
     beloning: {
         idCategory: {
             type: Schema.Types.ObjectId,
-            ref: 'Category', 
+            ref: 'Category',
             required: true
-          
+
         },
         subCategory: {
-            type: String, 
+            type: String,
             required: true
         }
-    }, 
+    },
     description: {
         type: String,
         required: true,
@@ -45,7 +45,6 @@ const productSchema = new Schema({
             default: ["XL, XXL, L, N"]
         }
     ],
-
 }, { timestamps: true })
 
 global.Product = global.Product || model("Product", productSchema)
