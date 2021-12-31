@@ -28,15 +28,21 @@ const productSchema = new Schema({
     size: [
         {
             type: String,
-            require: true
+            required: true
         }
     ],
     photos: [
-        {
-            type: String,
-            default: "alexei.jpg",
-            require: true
-        }
+        [{    
+            name: [{
+                type: String, 
+                required: true
+            }],      
+            url: {
+                type: String, 
+                required: true
+            }       
+        }], 
+
     ],
     colors: [
         {
