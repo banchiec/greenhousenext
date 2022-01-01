@@ -39,15 +39,17 @@ const productSchema = new Schema({
             },
             color: {
                 type: String,
+                required: true
             }
         }
-    ],
-    colors: [
-        {
-            type: String,
-            required: true,
-        }
-    ],
+    ]
+
+    // colors: [
+    //     {
+    //         type: String,
+    //         required: true,
+    //     }
+    // ],
 }, { timestamps: true })
 
 global.Product = global.Product || model("Product", productSchema)

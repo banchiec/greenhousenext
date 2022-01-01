@@ -35,19 +35,21 @@ const productSchema = new Schema({
     photos: [
         {
             url: {
-                type: String,
-            },
-            color: {
-                type: String,
+
+                : String,
             }
+            ,
+color:
+type: String,
         }
-    ],
-    colors: [
-        {
-            type: String,
-            required: true,
-        }
-    ],
+    ]
+
+    // colors: [
+    //     {
+    //         type: String,
+    //         required: true,
+    //     }
+    // ],
 }, { timestamps: true })
 
 global.Product = global.Product || model("Product", productSchema)

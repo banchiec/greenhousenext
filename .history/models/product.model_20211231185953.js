@@ -28,7 +28,7 @@ const productSchema = new Schema({
     size: [
         {
             type: String,
-            required: true,
+            require: true,
             default: ["XL, XXL, L, M"]
         }
     ],
@@ -36,16 +36,19 @@ const productSchema = new Schema({
         {
             url: {
                 type: String,
+                default: "alexei.jpg",
+                require: true
             },
-            color: {
+            nameColor: {
                 type: String,
+                requered: true
             }
         }
     ],
     colors: [
         {
             type: String,
-            required: true,
+            require: true,
         }
     ],
 }, { timestamps: true })

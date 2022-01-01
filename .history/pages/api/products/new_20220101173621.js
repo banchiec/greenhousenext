@@ -4,7 +4,7 @@ import Product from '../../../models/product.model'
 const newProduct = async (req, res) => {
     if (req.method === 'POST') {
         const { name } = req.body
-        console.log(req.body)
+        // console.log(req.body)
         if (name) {
             try {
                 // check is exist User
@@ -18,7 +18,7 @@ const newProduct = async (req, res) => {
                             return res.status(200).json(data)
                         })
                         .catch((error) => {
-                            return res.status(500).json(error)
+                            return res.status(500).json("este es el erro personalizado")
                         })
                 }
                 else {
