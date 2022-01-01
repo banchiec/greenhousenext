@@ -1,21 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-export const GalleryItem = (props) => {
+export const GalleryItem = (props) => { 
 
-    console.log(props)
+   
+console.log(props.getFirstColor) 
 
+
+      
     return (
-        <>
+        <> 
+        
             {
-                // !props.isActive ? (
-                props.photos?.map((photo, i) => {
-                    console.log()
-                    return (
-                        <img src={photo} key={i} alt="vestido" hidden={false}></img>
+                 !props.isActive ? (
+                props.photos?.map((photo, i) => {  
+                    return ( 
+                        <img   src={photo.url} key={i}  alt="vestido"></img>
                     )
                 })
-                // )
-                // :
-                // <img src={props.photos[1]}></img>
+                )
+                 : <p>Loading</p>
             }
         </>
     )

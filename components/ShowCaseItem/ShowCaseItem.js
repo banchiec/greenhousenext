@@ -37,7 +37,9 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     const onShow = (e) => {
         console.log(e.target.name)
         setImageShow(e.target.name)
-    }
+    }  
+ 
+    
 
     const getFirstColor = (colors) => {
         return colors[0]
@@ -53,7 +55,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
 
                         </div>
 
-                        <Gallery photos={photos} isActive={imageShow} getFirstColor={colors[0]} />
+                        <Gallery  photos={photos} isActive={imageShow} getFirstColor={colors[0]} />
 
                         <div>
                             {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}

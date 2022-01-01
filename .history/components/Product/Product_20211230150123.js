@@ -39,6 +39,18 @@ export default function Product({ name, beloning, size, price, description, phot
 
 
     return (
+<<<<<<< HEAD:components/Product/Product.js
+        <>   
+
+            <> 
+                {
+                    category ? (
+                        <>
+                            <Container >
+                                <Category>{category.name}<br /> {name} </Category> 
+                                <Gallery   items={photos}/> 
+                                 <div>
+=======
         <>
             <>
 
@@ -51,6 +63,7 @@ export default function Product({ name, beloning, size, price, description, phot
 
                                 <Category>{category.name}<br /> {name} </Category>
                                 <Gallery items={photos} />
+>>>>>>> 0ebf3aad356ab812ff31bbff7f5f8acec9594cad:.history/components/Product/Product_20211230150123.js
                                 <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle>
                                 <ButtonWrapper>
                                     <ButtonSize items={size} ></ButtonSize>

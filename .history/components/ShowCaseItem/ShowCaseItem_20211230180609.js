@@ -49,7 +49,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
 
                         </div>
 
-                        <Gallery photos={photos} isActive={ } />
+                        <Gallery photos={photos} isActive={} />
                         <div>
                             {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}
                             {/* <ButtonWrapper>
