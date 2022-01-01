@@ -2,6 +2,7 @@
 export const GalleryItem = (props) => { 
 
    
+console.log(props.getFirstColor) 
 
 
       
@@ -9,15 +10,14 @@ export const GalleryItem = (props) => {
         <> 
         
             {
-                // !props.isActive ? (
-                props.photos?.map((photo, i) => {
-                    return (
-                        <img   src={photo.url} key={i} alt="vestido"></img>
+                 !props.isActive ? (
+                props.photos?.map((photo, i) => {  
+                    return ( 
+                        <img   src={photo.url} key={i}  alt="vestido"></img>
                     )
                 })
-                // )
-                // :
-                // <img src={props.photos[1]}></img>
+                )
+                 : <p>Loading</p>
             }
         </>
     )
