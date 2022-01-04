@@ -14,9 +14,9 @@ export const ShowCase = (props) => {
     const [productList, setProductList] = useState([]);
     const productService = new ProductsService()
 
-    const getProducts = async () => {
+    const getProducts =  () => {
 
-        await productService
+           productService
             .getProducts()
             .then((products) => {
                 setProductList(products?.data)
@@ -28,7 +28,9 @@ export const ShowCase = (props) => {
         getProducts()
     }, [])
 
-    return (
+    return (   
+
+        
         <ContainerShowcase>
             {
                 productList ? (
@@ -41,7 +43,8 @@ export const ShowCase = (props) => {
                     <p>Loading</p>
                 )
             }
-        </ContainerShowcase>
+        </ContainerShowcase> 
+        
     )
 }
 

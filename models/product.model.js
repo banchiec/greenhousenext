@@ -33,11 +33,10 @@ const productSchema = new Schema({
     ],
     photos: [
         {
-            url: {
-                type: String,
+            url: [{ 
                 default: "alexei.jpg",
                 require: true
-            },
+            }],
             nameColor: {
                 type: String,
                 requered: true

@@ -1,7 +1,8 @@
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { Navbar } from '../components/Navbar/Navbar'
 import { ShowCase } from '../components/Showcase/ShowCase'
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react' 
+import { ProductForm } from '../components/ProductForm/ProductForm'
 import { Collections } from '../components/Collections/Collections'
 
 import UserServices from '../services/user.service'
@@ -41,7 +42,10 @@ export default function Home() {
         currentUser?.name &&
         <h1>{currentUser.name}</h1>
       } */}
-      <ShowCase />
+       {
+       /* <ShowCase />*/
+      }
+      <ProductForm></ProductForm>
       {/* <Collections /> */}
     </div >
   )
