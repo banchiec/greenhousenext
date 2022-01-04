@@ -4,7 +4,7 @@ import Product from '../../../models/product.model'
 const newProduct = async (req, res) => {
     if (req.method === 'POST') {
         const { name } = req.body
-        console.log(req.body)
+        console.log(name)
         if (name) {
             try {
                 // check is exist User

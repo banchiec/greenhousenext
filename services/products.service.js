@@ -7,7 +7,8 @@ class ProductsService {
         })
     } 
   
-    getProducts = () => this.instance.get("/") 
+    getProducts = () => this.instance.get("/")  
+    createProduct = (form) => this.instance.post("/new", form)
 
 
 }
