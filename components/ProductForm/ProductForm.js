@@ -1,14 +1,19 @@
-import React from 'react'  
+
 import { useState } from 'react'
-import ProductsService from '../../services/products.service'
-
+import ProductsService from '../../services/products.service'  
 import { StyledFormWrapper,StyledForm, StyledInput, StyledButton,  } from './ProductForm.styled'
+import { Categories } from '../Categories/Categories'
+import { MultiSelect } from "react-multi-select-component";
 
 
+ export   const ProductForm = (props) => {   
 
-
- export  const ProductForm = () => {
      
+       
+ 
+  
+     const [selected, setSelected] = useState([]);
+ 
     const [form, setForm] = useState({
         name: "", 
         price: "", 
@@ -16,31 +21,31 @@ import { StyledFormWrapper,StyledForm, StyledInput, StyledButton,  } from './Pro
         photos: {
             url: "",  
             color: ""
-        }
+        },     
+       beloning: {
+           idCategory: ""
+       }
+     
     })  
 
  let productService = new ProductsService() 
       
- 
+   
+     
+
 
     const handleChange = (e) => {
-        const {value, name} =  e.target;  
-        console.log(e) 
-        setForm({ 
-            ...form, 
-            [name]: value
-        })
-       
-    }   
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
- 
+   
 
 
     const handleSubmit = (e) => { 
         e.preventDefault()
         productService
             .createProduct(form)   
-         .then(() => {
+         .then(() => { 
              setForm({
                  name: "", 
                  price: "", 
@@ -48,15 +53,23 @@ import { StyledFormWrapper,StyledForm, StyledInput, StyledButton,  } from './Pro
                  photos: {
                      url: "", 
                      color: ""
+                 },     
+                 beloning: {
+                     idCategory: ""
                  }
                  
              })
          }) 
          .catch(err => console.log(err))   
-    }
+    }   
+
+    
+  
 
     return(
-        <>  
+        <> 
+
+
         <StyledFormWrapper>
                 <StyledForm onSubmit={(e) => handleSubmit(e)}>
                     <h2>Crear nuevo producto</h2>
@@ -78,19 +91,20 @@ import { StyledFormWrapper,StyledForm, StyledInput, StyledButton,  } from './Pro
                     <StyledInput
                         type="text"
                         name="description"
-                        value={form.description}
+                        value={form.description} 
+                        onChange={(e) => handleChange(e)}
+                    />   
+                    <StyledInput
+                        type="text"
+                        name="idCategory"
+                        value={form.beloning.idCategory}
                         onChange={(e) => handleChange(e)}
                     />   
                     
-                    <label htmlFor="url">Select photo</label>
-                    <StyledInput
-                        type="file"
-                        name="url"
-                        value={form.photos.url}
-                        onChange={(e) => handleChange(e)}
-                    />             
+                                
                     <StyledButton type='submit'>Crear producto</StyledButton>
-                </StyledForm>  
+                </StyledForm> 
+                 
         </StyledFormWrapper>
         </>
     ) 

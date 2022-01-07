@@ -43,9 +43,9 @@ export default function Home() {
         <h1>{currentUser.name}</h1>
       } */}
        {
-       //<ShowCase />
+       <ShowCase />
       }
-      <ProductForm></ProductForm>
+   
       {/* <Collections /> */}
     </div >
   )

@@ -11,9 +11,6 @@ const productSchema = new Schema({
         idCategory: {
             type: Schema.Types.ObjectId,
             ref: 'Category', 
-            required: true
-            
-
         },
         subCategory: {
             type: String,
@@ -35,18 +32,18 @@ const productSchema = new Schema({
         {
             url: {
                 type: String, 
-                required: true
+               
             },
             color: {
                 type: String, 
-                required: true
+               
             }
         }
     ],
     colors: [
         {
             type: String, 
-            required: true
+           
         }
     ],
 }, { timestamps: true })

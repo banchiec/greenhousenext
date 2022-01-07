@@ -20,9 +20,13 @@ export const Collections = () => {
 
     useEffect(() => {
         getCategories()
-    }, [])
+    }, [])        
+     
+    const clicked = () => {
+        console.log('I am clicked element')
+    }
 
-
+ 
     console.log(categories)
 
     return (
@@ -30,7 +34,7 @@ export const Collections = () => {
             {
                 categories?.map((category) => {
                     return (
-                        <CollectionItem key={category._id} category={category} />
+                        <CollectionItem    click={clicked}   key={category._id} category={category} />
                     )
                 })
             }

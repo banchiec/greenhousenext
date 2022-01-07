@@ -1,30 +1,31 @@
 import { ContainerProduct, Category, SizeButton, ButtonWrapper, SelectSizeTitle, SelectColorTitle, ColorWrapper } from "./ShowCaseItem.styled";
-
 import { Gallery } from "../Gallery/Gallery";
-import { ButtonColors } from "../ButtonColors/ButtonColors";
-
+import { ButtonColors } from "../ButtonColors/ButtonColors"; 
 import CategoriesServices from '../../services/categories.service'
 import { useEffect, useState } from "react"
+import { AdminPanel } from "../AdminPanel/AdminPanel";
 
 export default function ShowCaseItem({ name, beloning, size, price, description, photos, colors }) {
+    
+  
+   
 
-    const [category, setCategory] = useState([])
+    const [category, setCategory] = useState([])  
     const [show, setShow] = useState(false)
-    const [imageShow, setImageShow] = useState()
+    const [imageShow, setImageShow] = useState() 
 
-    const { idCategory, subCategory } = beloning
+    let categoryService = new CategoriesServices() 
 
-    let categoryService = new CategoriesServices()
 
-    const getCategories = async () => {
+  const  getCategories = async () => {
 
         await categoryService
-            .getCategoryById(idCategory)
+            .getCategoryById(beloning?.idCategory)
             .then((data) => {
                 setCategory(data?.data)
             })
             .catch((err) => {
-                console.log("error")
+                console.log(err)
             }
             )
     }
@@ -32,9 +33,10 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     useEffect(() => {
         getCategories()
     }, [])
+   
 
 
-    const onShow = (e) => {
+    const onShow = (e) => {      
         console.log(e.target.name)
         setImageShow(e.target.name)
     }  
@@ -51,17 +53,20 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
                 category ? (
                     <>
                         <div>
-                            <Category>{category.name}<br /> {name} </Category>
-
+                            <Category >{category.name}<br /> {name} </Category>  
+    
                         </div>
 
-                        <Gallery  photos={photos} isActive={imageShow} getFirstColor={colors[0]} />
+                        <Gallery  photos={photos} isActive={imageShow} getFirstColor={colors[0]} />   
+                      
+
 
                         <div>
                             {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}
                             {/* <ButtonWrapper>
                                 <ButtonSize buttons={size} ></ButtonSize>
-                            </ButtonWrapper> */}
+                            </ButtonWrapper> */} 
+                            <AdminPanel/>
                             <ButtonColors palitrs={colors} onShow={onShow} ></ButtonColors>
                         </div>
                     </>

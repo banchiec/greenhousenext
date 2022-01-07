@@ -8,7 +8,7 @@ import { SizeButton } from "../ShowCaseItem/ShowCaseItem.styled";
 
 
 
-export const ShowCase = (props) => {
+export const ShowCase = () => {
 
 
     const [productList, setProductList] = useState([]);
