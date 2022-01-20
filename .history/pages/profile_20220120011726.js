@@ -1,6 +1,6 @@
 
 import { useSession, signIn, signOut } from "next-auth/react"        
-import Link from 'next/link'
+import Link from 'react/Link'
 
 export default function Component() {
     const { data: session } = useSession()    

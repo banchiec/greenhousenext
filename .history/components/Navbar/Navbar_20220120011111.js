@@ -16,7 +16,7 @@ export const Navbar = () => {
     useEffect(() => {
         getCurrentUser()
     }, [session])
-    console.log(currentUser);
+    console.log(props.currentUser);
     
     return (
         <ContainerNavbar>
@@ -27,7 +27,7 @@ export const Navbar = () => {
                         <LoginIcon onClick={() => signIn()} />
                         : (
                             <div>
-                                <Link href={`/profile/`}>
+                                <Link href={`/profile/${currentUser?.name}`}>
                                 <img 
                                     src={session?.user?.image} 
                                     alt={session?.user?.name}

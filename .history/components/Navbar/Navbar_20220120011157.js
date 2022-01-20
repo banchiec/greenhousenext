@@ -27,7 +27,7 @@ export const Navbar = () => {
                         <LoginIcon onClick={() => signIn()} />
                         : (
                             <div>
-                                <Link href={`/profile/`}>
+                                <Link href={`/profile/${currentUser}`}>
                                 <img 
                                     src={session?.user?.image} 
                                     alt={session?.user?.name}

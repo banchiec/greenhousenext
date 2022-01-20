@@ -29,6 +29,7 @@ export const ShowCase = () => {
 
     return (   
 
+        
         <ContainerShowcase>
             {
                 productList ? (
@@ -41,6 +42,8 @@ export const ShowCase = () => {
                     <p>Loading</p>
                 )
             }
+            <h1>Showcase</h1>
+            <h1>Showcase</h1>
         </ContainerShowcase> 
         
     )

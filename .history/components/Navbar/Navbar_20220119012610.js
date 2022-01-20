@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState } from "react"
-import Link from 'next/link'
 import { ContainerNavbar } from "./Navbar.styled"
 import { ShoppingCartIcon } from "@heroicons/react/outline"
-import { LoginIcon,LogoutIcon} from "@heroicons/react/outline"
+import { LoginIcon } from "@heroicons/react/outline"
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
+import { useEffect, useState } from "react"
 
-export const Navbar = () => {
+export const Navbar = (props) => {
     const { data: session, status, loading } = useSession()
     const [currentUser, setCurrentUser] = useState({})
     const getCurrentUser = async () => {
@@ -16,8 +15,6 @@ export const Navbar = () => {
     useEffect(() => {
         getCurrentUser()
     }, [session])
-    console.log(currentUser);
-    
     return (
         <ContainerNavbar>
             <img src="casaverdelogoLetter.png" alt="Imagen logo" />
@@ -27,13 +24,12 @@ export const Navbar = () => {
                         <LoginIcon onClick={() => signIn()} />
                         : (
                             <div>
-                                <Link href={`/profile/`}>
                                 <img 
                                     src={session?.user?.image} 
                                     alt={session?.user?.name}
+                                   onClick={() => signOut()}
                                 />
-                                </Link>
-                                <LogoutIcon onClick={()=>signOut()}/>
+                                {/* <button onClick={()=>signOut()} >Signout</button> */}
                             </div>
                         )}
                 <ShoppingCartIcon />

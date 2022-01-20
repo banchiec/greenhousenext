@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <div className='container-app'>
-      <Navbar/>
+      <Navbar />
       {/* {
         currentUser?.name &&
         <h1>{currentUser.name}</h1>
