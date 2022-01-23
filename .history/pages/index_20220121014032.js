@@ -25,7 +25,6 @@ export default function Home() {
       return console.log(error)
     }
   }
-  console.log(currentUser);
 
   useEffect(() => {
     isUser(session?.user)
@@ -35,6 +34,7 @@ export default function Home() {
   return (
     <div className='container-app'>
       <Navbar/>
+      {console.log(currentUser)}
       {/* {
         currentUser?.name &&
         <h1>{currentUser.name}</h1>

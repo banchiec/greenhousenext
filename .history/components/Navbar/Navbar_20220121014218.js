@@ -16,6 +16,7 @@ export const Navbar = () => {
     useEffect(() => {
         getCurrentUser()
     }, [session])
+    console.log(currentUser);
     return (
         <ContainerNavbar>
             <img src="casaverdelogoLetter.png" alt="Imagen logo" />

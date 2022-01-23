@@ -25,7 +25,6 @@ export default function Home() {
       return console.log(error)
     }
   }
-  console.log(currentUser);
 
   useEffect(() => {
     isUser(session?.user)
