@@ -43,7 +43,7 @@ export default function Profile() {
                   <Link href={{
                         pathname : '/control-panel',
                   }}>
-                      <div className = "control_panel_icon">
+                      <div>
                         <CogIcon/>
                       </div>
                   </Link>

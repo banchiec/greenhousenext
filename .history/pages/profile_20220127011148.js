@@ -5,7 +5,6 @@ import { CogIcon } from "@heroicons/react/outline"
 import Link from 'next/link'
 import { Navbar } from "../components/Navbar/Navbar"
 import {  ContainerProfile }from './profile.styled'
-import ProfileScreen from "../screen/ProfileScreen/ProfileScreen"
 
 import UserServices from '../services/user.service'
 
@@ -43,13 +42,20 @@ export default function Profile() {
                   <Link href={{
                         pathname : '/control-panel',
                   }}>
-                      <div className = "control_panel_icon">
+                      <div>
                         <CogIcon/>
                       </div>
                   </Link>
                 }
-                <ProfileScreen currentUser={currentUser}/>
+                <Showcase />
                 {/* <img src={session?.user?.image} alt="userimg"></img>  */}
+                <h1>
+                    {session?.user.email}<br /> 
+                </h1>
+                <h2>
+                    Bienvenido {session?.user?.name}  
+                </h2>
+                <br></br>
             </ContainerProfile>
         </>
     }

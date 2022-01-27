@@ -6,6 +6,7 @@ export const ContainerProfile = styled.div`
 		padding: 0;
 		margin: 0;
 		display: flex;
+		border: 1px solid green;
 		flex-direction: row;
 		align-items: center;
 		justify-content: right;
