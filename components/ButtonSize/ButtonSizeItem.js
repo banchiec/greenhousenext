@@ -1,20 +1,25 @@
 
-import { Button, SizeButton } from "../ShowCaseItem/ShowCaseItem.styled"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react" 
+import { SizeButton } from "./ButtonSizeItem.styled"
 
-export const ButtonSizeItem = ((item) => {
+export const ButtonSizeItem = (props) => { 
+ 
+     console.log(props)
 
     const [active, setActive] = useState("false")
 
 
-    console.log(item.buttons)
+   
 
     return (
-        <>
-            {
-                item.buttons.map((item, i) => {
+        <> 
+            <p>Select Size</p>
+            {  
+                
+                props.buttons?.map((item, i) => { 
+                    console.log(item)
                     return (
-                        <>
+                        <>   
                             <SizeButton key={i} className={active === i ? "danger" : "null"} onClick={(() => setActive(i))}>{item}</SizeButton>
                         </>
                     )
@@ -23,4 +28,8 @@ export const ButtonSizeItem = ((item) => {
             }
         </>
     )
-})
+} 
+
+
+
+

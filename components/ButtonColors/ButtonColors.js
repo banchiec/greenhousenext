@@ -5,9 +5,9 @@ export const ButtonColors = (props) => {
 
     return (
         <>
-            <h3>SELECT COLOR </h3>
+            <h3>SELECT COLOR </h3>     
             <ContainerButtonColor>
-                <ButtonColorsItem {...props} />
+                <ButtonColorsItem  {...props} />
             </ContainerButtonColor>
         </>
     )

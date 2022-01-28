@@ -5,7 +5,7 @@ import ShowCaseItem from '../ShowCaseItem/ShowCaseItem'
 import ProductsService from './../../services/products.service'
 import { ContainerShowcase } from "./ShowCase.styled";
 import { SizeButton } from "../ShowCaseItem/ShowCaseItem.styled";
-
+import { AdminPanel } from "../AdminPanel/AdminPanel";
 
 
 export const ShowCase = () => {
@@ -31,7 +31,7 @@ export const ShowCase = () => {
     return (   
 
         
-        <ContainerShowcase>
+        <ContainerShowcase>   
             {
                 productList ? (
                     productList?.map((product, index) => {

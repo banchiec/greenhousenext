@@ -70,40 +70,6 @@ export const Category = styled.h3`
 
 
 
-export const SizeButton = styled.button`
-  {
-     width: 54.13px;   
-     height: 40.96px; 
-     border: 1px solid #131212;   
-     color:  ${({ color }) => color || "white"}
-     font-family: 'Alegreya Sans';
-     font-weight: 500;
-     line-height: 24px; 
-     text-align: center;  
-     padding-top: 20px; 
-     font-weight: bold; 
-}     
-
-${props =>
-    props.primary &&
-    css`
-    height: 25px;
-    width: 48px; 
-    height: 48px;
-       border-radius: 100px;
-    display: inline-block; 
-    `};
-`;
-
-
-
-
-
-export const ButtonCard = styled.div`     
-    
-
-        
-`
 
 
 export const ButtonWrapper = styled.div`

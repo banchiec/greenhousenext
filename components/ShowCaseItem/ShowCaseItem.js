@@ -1,7 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import { ContainerProduct, Category, SizeButton, ButtonWrapper, SelectSizeTitle, SelectColorTitle, ColorWrapper } from "./ShowCaseItem.styled";
-import { Gallery } from "../Gallery/Gallery";
+import { Gallery } from "../Gallery/Gallery";  
 import { ButtonColors } from "../ButtonColors/ButtonColors"; 
-import CategoriesServices from '../../services/categories.service'
+import CategoriesServices from '../../services/categories.service'  
+import { ButtonSize } from "../ButtonSize/ButtonSize";
+import { ButtonCard } from "../ButtonCard/ButtonCard";
 import { useEffect, useState } from "react"
 import { AdminPanel } from "../AdminPanel/AdminPanel";
 
@@ -32,7 +35,9 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
 
     useEffect(() => {
         getCategories()
-    }, [])
+    }, [])  
+
+
    
 
 
@@ -46,33 +51,39 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     const getFirstColor = (colors) => {
         return colors[0]
     }
-
-    return (
-        <ContainerProduct>
-            {
+ 
+    return ( 
+       
+           <>
+        <ContainerProduct> 
+            { 
                 category ? (
-                    <>
-                        <div>
+                    <> 
+                             
+                        
                             <Category >{category.name}<br /> {name} </Category>  
-    
-                        </div>
 
-                        <Gallery  photos={photos} isActive={imageShow} getFirstColor={colors[0]} />   
-                      
-
-
+                            <Gallery photos={photos} price={price}  isActive={imageShow} getFirstColor={colors[0]} />   
                         <div>
                             {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}
                             {/* <ButtonWrapper>
                                 <ButtonSize buttons={size} ></ButtonSize>
                             </ButtonWrapper> */} 
-                            <AdminPanel/>
-                            <ButtonColors palitrs={colors} onShow={onShow} ></ButtonColors>
+                            <ButtonSize buttons={size}></ButtonSize>                         
+                            <ButtonColors palitrs={colors} onShow={onShow} ></ButtonColors>  
+                                           
                         </div>
                     </>
                 ) : <p>Loading....</p>
-            }
-        </ContainerProduct>
+            }    
+             
+        </ContainerProduct>    
+         
+            <ButtonCard  ></ButtonCard>
+            
+          
+        </>
+        
     )
 }
 

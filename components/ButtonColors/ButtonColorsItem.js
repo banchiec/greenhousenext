@@ -1,4 +1,6 @@
-import { SizeButton } from "../ShowCaseItem/ShowCaseItem.styled"
+import { ColorButton } from "./ButtonColors.styled"
+
+
 
 
 export const ButtonColorsItem = ((props) => {
@@ -7,7 +9,7 @@ export const ButtonColorsItem = ((props) => {
             {
                 props.palitrs.map((item, i) => {
                     return (
-                        <SizeButton primary style={{ backgroundColor: `${item}` }} key={i} name={item} onClick={props.onShow} />
+                         <ColorButton primary style={{ backgroundColor: `${item}` }} key={i} name={item} onClick={props.onShow} />
                     )
                 })
             }

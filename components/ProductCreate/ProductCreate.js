@@ -1,47 +1,38 @@
 
-import { useState } from 'react'
 import ProductsService from '../../services/products.service'  
-import { StyledFormWrapper,StyledForm, StyledInput, StyledButton,  } from './ProductForm.styled'
+import { StyledFormWrapper,StyledForm, StyledInput, StyledButton,  } from './ProductCreate.styled' 
 import { Categories } from '../Categories/Categories'
-import { MultiSelect } from "react-multi-select-component";
+import Select from 'react-select';
+import { useEffect, useState } from 'react' 
 
 
- export   const ProductForm = (props) => {   
-
-     
-       
+ export   const ProductCreate = (props) => {    
  
-  
-     const [selected, setSelected] = useState([]);
- 
+        
     const [form, setForm] = useState({
         name: "", 
         price: "", 
-        description: "", 
-        photos: {
-            url: "",  
-            color: ""
-        },     
+        description: "",  
+        size: "", 
        beloning: {
-           idCategory: ""
+           idCategory: "", 
+           subCategory: ""
        }
-     
     })  
 
- let productService = new ProductsService() 
-      
-   
-     
+ let productService = new ProductsService()   
 
-
+ 
+ 
     const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    setForm({ ...form, [e.target.name]: e.target.value , beloning: {
+        idCategory: e.target.value
+    } });
+  }; 
+ 
 
-   
 
-
-    const handleSubmit = (e) => { 
+    const handleSubmit = (e) => {  
         e.preventDefault()
         productService
             .createProduct(form)   
@@ -49,27 +40,23 @@ import { MultiSelect } from "react-multi-select-component";
              setForm({
                  name: "", 
                  price: "", 
-                 description: "",  
-                 photos: {
-                     url: "", 
-                     color: ""
-                 },     
+                 description: "",    
+                 size: "", 
                  beloning: {
                      idCategory: ""
-                 }
-                 
+                 }       
              })
          }) 
          .catch(err => console.log(err))   
     }   
+ 
 
+  
     
   
 
     return(
         <> 
-
-
         <StyledFormWrapper>
                 <StyledForm onSubmit={(e) => handleSubmit(e)}>
                     <h2>Crear nuevo producto</h2>
@@ -93,17 +80,39 @@ import { MultiSelect } from "react-multi-select-component";
                         name="description"
                         value={form.description} 
                         onChange={(e) => handleChange(e)}
-                    />   
+                    /> 
+                    <label htmlFor="size">Size</label>
                     <StyledInput
                         type="text"
-                        name="idCategory"
-                        value={form.beloning.idCategory}
+                        name="size"
+                        value={form.size}
                         onChange={(e) => handleChange(e)}
                     />   
+                    <label htmlFor="idCategory">Name category</label>
                     
-                                
+
+                    <select multiple onChange={(e) => handleChange(e)}
+                        className="custom-select"
+                        id="inputGroupSelect" 
+                        name="idCategory"
+
+                    >
+                       {
+                           props.categoriesList?.map((elm) => { 
+                               return( 
+                                   <>
+                                   <option  value={elm._id}>{elm.name}</option> 
+                                   </>
+                               )
+                           })
+                       }
+                    </select>
+                  
+                    
                     <StyledButton type='submit'>Crear producto</StyledButton>
-                </StyledForm> 
+                </StyledForm>  
+
+                
                  
         </StyledFormWrapper>
         </>
