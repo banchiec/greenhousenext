@@ -6,7 +6,9 @@ import ProductsService from './../../services/products.service'
 import { ContainerShowcase } from "./ShowCase.styled";
 import { SizeButton } from "../ShowCaseItem/ShowCaseItem.styled";
 
-const ShowCase = () => {
+
+
+export const ShowCase = () => {
 
     const [productList, setProductList] = useState([]);
     const productService = new ProductsService()
@@ -39,7 +41,9 @@ const ShowCase = () => {
                 )
             }
         </ContainerShowcase>
+
     )
 }
 
-export default ShowCase
+
+

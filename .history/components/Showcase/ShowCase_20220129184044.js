@@ -41,5 +41,3 @@ const ShowCase = () => {
         </ContainerShowcase>
     )
 }
-
-export default ShowCase
