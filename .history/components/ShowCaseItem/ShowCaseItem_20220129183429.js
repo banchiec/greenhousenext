@@ -17,16 +17,8 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     const [show, setShow] = useState(false)
     const [imageShow, setImageShow] = useState()
 
-    const images = photos?.map((itemAll) => itemAll.url)
-    const [imageToShow, setImageToShow] = useState(images[0])
-    const [lightboxDisplay, setLightBoxDisplay] = useState(false)
-
-
     let categoryService = new CategoriesServices()
 
-    useEffect(() => {
-        getCategories()
-    }, [])
 
     const getCategories = async () => {
 
@@ -41,12 +33,17 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
             )
     }
 
+    useEffect(() => {
+        getCategories()
+    }, [])
+
+
+    const images = photos?.map((itemall) => itemall.url)
     console.log(images)
 
-    const showImageColor = (url) => {
-        setImageToShow(url);
-        setLightBoxDisplay(false)
-    }
+    const [imageToShow, setImageToShow] = useState(images[0])
+
+    const [lightboxDisplay, setLightBoxDisplay] = useState(false)
 
     const showImage = (url) => {
         setImageToShow(url);
@@ -56,6 +53,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     const hideLightBox = () => {
         setLightBoxDisplay(false)
     }
+
 
     const showNext = (e) => {
         e.stopPropagation();
@@ -71,6 +69,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
         }
     }
 
+
     const showPrev = (e) => {
         e.stopPropagation();
         let currentIndex = images.indexOf(imageToShow);
@@ -85,6 +84,10 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
         }
     };
 
+
+
+
+
     return (
         <>
             <ContainerProduct>
@@ -93,23 +96,32 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
                         <>
                             <div>
                                 <Category >{category.name}<br /> {name} </Category>
+
                             </div>
 
                             <Gallery img={imageToShow} showImage={showImage} photos={photos} isActive={imageShow} getFirstColor={colors[0]} />
 
+
+
                             <div>
+                                {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}
+                                {/* <ButtonWrapper>
+                                <ButtonSize buttons={size} ></ButtonSize>
+                            </ButtonWrapper> */}
                                 <ButtonSize buttons={size} />
-                                <ButtonColors
-                                    palitrs={colors}
-                                    showImage={showImageColor}
-                                    photos={photos}
-                                />
+                                <ButtonColors palitrs={colors}  ></ButtonColors>
                             </div>
                         </>
                     ) : <p>Loading....</p>
                 }
             </ContainerProduct>
+
+
+
+
         </>
     )
 
 }
+
+

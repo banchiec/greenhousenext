@@ -17,11 +17,12 @@ export const GalleryItem = (props) => {
                     <div className="row">
                         <div className="lightbox__view" >
                             <img id="lightbox-img" src={props.img}></img>
+
                         </div>
                         <div className="clearfix"></div>
                         <Carousel show={2} >
                             {props.photos.map((item, index) => (
-                                <div key={index}>
+                                <div key={item.id}>
                                     <div style={{ padding: 17 }} >
                                         <img className="image-card-carousel" onClick={() => props.showImage(item.url)} src={item.url} />
                                     </div>
