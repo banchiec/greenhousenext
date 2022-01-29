@@ -10,17 +10,17 @@ const productSchema = new Schema({
     beloning: {
         idCategory: {
             type: Schema.Types.ObjectId,
-            ref: 'Category', 
+            ref: 'Category',
         },
         subCategory: {
             type: String,
-          
+
         }
     },
     description: {
-        type: String, 
+        type: String,
         required: true
-       
+
     },
     size: [
         {
@@ -31,23 +31,19 @@ const productSchema = new Schema({
     photos: [
         {
             url: {
-                type: String, 
-               
+                type: String,
+
             },
             color: {
-                type: String, 
-               
+                type: String,
+
             }
         }
     ],
     colors: [
         {
-<<<<<<< HEAD
             type: String,
-=======
-            type: String, 
-           
->>>>>>> 97e4cbbc34762e5b0272f3d2a8bbf4f8895f6af3
+
         }
     ],
 }, { timestamps: true })
