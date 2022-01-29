@@ -2,7 +2,6 @@ import { SizeButton } from "../ShowCaseItem/ShowCaseItem.styled"
 
 
 export const ButtonColorsItem = (props) => {
-    console.log(props);
     return (
         <>
             {

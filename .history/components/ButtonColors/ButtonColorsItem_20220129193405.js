@@ -8,7 +8,7 @@ export const ButtonColorsItem = (props) => {
             {
                 props.photos.map((item, i) => {
                     return (
-                        <SizeButton primary style={{ backgroundColor: `${item.color}` }} key={i} name={item.color} onClick={() => props.showImage(item.url)} />
+                        <SizeButton primary style={{ backgroundColor: `${item.color}` }} key={i} name={item.color} onClick={onShow} />
                     )
                 })
             }
@@ -16,4 +16,4 @@ export const ButtonColorsItem = (props) => {
         </>
     )
 
-}
+})

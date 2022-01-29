@@ -54,6 +54,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
         setLightBoxDisplay(false)
     }
 
+
     const showNext = (e) => {
         e.stopPropagation();
         let currentIndex = images.indexOf(imageToShow)

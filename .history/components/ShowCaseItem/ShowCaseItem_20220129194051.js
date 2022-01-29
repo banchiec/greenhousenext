@@ -37,7 +37,6 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
             }
             )
     }
-
     console.log(images)
 
     const showImageColor = (url) => {
@@ -53,6 +52,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     const hideLightBox = () => {
         setLightBoxDisplay(false)
     }
+
 
     const showNext = (e) => {
         e.stopPropagation();

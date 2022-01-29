@@ -54,6 +54,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
         setLightBoxDisplay(false)
     }
 
+
     const showNext = (e) => {
         e.stopPropagation();
         let currentIndex = images.indexOf(imageToShow)
@@ -98,7 +99,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
                                 <ButtonSize buttons={size} />
                                 <ButtonColors
                                     palitrs={colors}
-                                    showImage={showImageColor}
+                                    // showImage={showImageColor}
                                     photos={photos}
                                 />
                             </div>

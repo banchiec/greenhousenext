@@ -4,7 +4,10 @@ import { Buttoncard } from "./ButtonCardItem.styled"
 
 
 export const ButtonCardItem = ((props) => {
+
     console.log(props)
+
+
     return (
         <>
             <div>

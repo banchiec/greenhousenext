@@ -37,12 +37,10 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
             }
             )
     }
-
     console.log(images)
 
     const showImageColor = (url) => {
-        setImageToShow(url);
-        setLightBoxDisplay(false)
+
     }
 
     const showImage = (url) => {
@@ -53,6 +51,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     const hideLightBox = () => {
         setLightBoxDisplay(false)
     }
+
 
     const showNext = (e) => {
         e.stopPropagation();
@@ -95,10 +94,14 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
                             <Gallery img={imageToShow} showImage={showImage} photos={photos} isActive={imageShow} getFirstColor={colors[0]} />
 
                             <div>
+                                {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}
+                                {/* <ButtonWrapper>
+                                <ButtonSize buttons={size} ></ButtonSize>
+                            </ButtonWrapper> */}
                                 <ButtonSize buttons={size} />
                                 <ButtonColors
                                     palitrs={colors}
-                                    showImage={showImageColor}
+                                    showImage={showImage}
                                     photos={photos}
                                 />
                             </div>
