@@ -55,7 +55,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
 
                         </div>
 
-                        <Gallery photos={photos} isActive={imageShow} getFirstColor={colors[0]} />
+                        <Gallery photos={photos} isActive={onShow} getFirstColor={colors[0]} />
 
                         <div>
                             {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}

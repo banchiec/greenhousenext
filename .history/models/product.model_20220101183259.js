@@ -34,11 +34,14 @@ const productSchema = new Schema({
     ],
     photos: [
         {
-            url: {
-                type: String,
-            },
-            color: {
-                type: String,
+            photo:
+            {
+                url: {
+                    type: String,
+                },
+                color: {
+                    type: String,
+                }
             }
         }
     ],
