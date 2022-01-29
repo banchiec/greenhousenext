@@ -3,52 +3,46 @@ import { Schema, model } from 'mongoose'
 const productSchema = new Schema({
     name: {
         type: String,
-        required: true
     },
     price: {
         type: Number,
-        required: true
     },
     beloning: {
         idCategory: {
             type: Schema.Types.ObjectId,
             ref: 'Category',
-            required: true
-
         },
         subCategory: {
             type: String,
-            required: true
+
         }
     },
     description: {
         type: String,
-        required: true,
+        required: true
+
     },
     size: [
         {
             type: String,
-            require: true
+            default: ["XL, XXL, L, M"]
         }
     ],
     photos: [
         {
             url: {
                 type: String,
-                default: "alexei.jpg",
-                require: true
+
             },
-            nameColor: {
+            color: {
                 type: String,
-                requered: true
+
             }
         }
     ],
     colors: [
         {
             type: String,
-            require: true,
-            default: ["XL, XXL, L, N"]
         }
     ],
 }, { timestamps: true })
