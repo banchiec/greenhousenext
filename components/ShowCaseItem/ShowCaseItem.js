@@ -1,30 +1,34 @@
-import { ContainerProduct, Category, SizeButton, ButtonWrapper, SelectSizeTitle, SelectColorTitle, ColorWrapper } from "./ShowCaseItem.styled";
-
+import { ContainerProduct, Category, SizeButton, ButtonWrapper, SelectSizeTitle, SelectColorTitle, ColorWrapper, ButtonCard } from "./ShowCaseItem.styled";
 import { Gallery } from "../Gallery/Gallery";
-import { ButtonColors } from "../ButtonColors/ButtonColors";
-
-import CategoriesServices from '../../services/categories.service'
+import { ButtonColors } from "../ButtonColors/ButtonColors"; 
+import CategoriesServices from '../../services/categories.service' 
 import { useEffect, useState } from "react"
+import { AdminPanel } from "../AdminPanel/AdminPanel";  
+import { ButtonSize } from "../ButtonSize/ButtonSize"; 
+ButtonCard
+
 
 export default function ShowCaseItem({ name, beloning, size, price, description, photos, colors }) {
+    
+  
+   
 
-    const [category, setCategory] = useState([])
+    const [category, setCategory] = useState([])  
     const [show, setShow] = useState(false)
-    const [imageShow, setImageShow] = useState()
+    const [imageShow, setImageShow] = useState() 
 
-    const { idCategory, subCategory } = beloning
+    let categoryService = new CategoriesServices() 
 
-    let categoryService = new CategoriesServices()
 
-    const getCategories = async () => {
+  const  getCategories = async () => {
 
         await categoryService
-            .getCategoryById(idCategory)
+            .getCategoryById(beloning?.idCategory)
             .then((data) => {
                 setCategory(data?.data)
             })
             .catch((err) => {
-                console.log("error")
+                console.log(err)
             }
             )
     }
@@ -32,43 +36,105 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     useEffect(() => {
         getCategories()
     }, [])
+    
 
+    const images = photos?.map((itemall) => itemall.url) 
+    console.log(images) 
 
+<<<<<<< HEAD
     const onShow = (e) => {
         console.log(e.target.name)
         setImageShow(e.target.name)
     }
 
 
+=======
+    const [imageToShow, setImageToShow] = useState(images[0])  
 
-    const getFirstColor = (colors) => {
-        return colors[0]
-    }
+    const [lightboxDisplay, setLightBoxDisplay] = useState(false)  
+    
+    const showImage = (url) => {
+        setImageToShow(url);
+        setLightBoxDisplay(true)
+    }   
 
-    return (
-        <ContainerProduct>
+    const hideLightBox = () => {
+        setLightBoxDisplay(false)
+    }  
+   
+
+    const showNext = (e) => {
+        e.stopPropagation();
+        let currentIndex = images.indexOf(imageToShow)
+        if (currentIndex >= images.length - 1) {
+            let loopsimg = props.photos.length - 1;
+            let nextImage = images[currentIndex - loopsimg];
+            setImageToShow(nextImage);
+            //setLightBoxDisplay(false);
+        } else {
+            let nextImage = images[currentIndex + 1];
+            setImageToShow(nextImage);
+        }
+    }  
+     
+
+    const showPrev = (e) => {
+        e.stopPropagation();
+        let currentIndex = images.indexOf(imageToShow);
+        if (currentIndex <= 0) {
+            let loopsimg = props.photos.length - 1;
+            let nextImage = images[currentIndex + loopsimg];
+            setImageToShow(nextImage);
+            // setLightBoxDisplay(false);
+        } else {
+            let nextImage = images[currentIndex - 1];
+            setImageToShow(nextImage);
+        }
+    };
+
+ 
+>>>>>>> 97e4cbbc34762e5b0272f3d2a8bbf4f8895f6af3
+
+
+
+    return ( 
+        <>
+        <ContainerProduct> 
             {
                 category ? (
                     <>
                         <div>
-                            <Category>{category.name}<br /> {name} </Category>
-
+                            <Category >{category.name}<br /> {name} </Category>  
+    
                         </div>
 
+<<<<<<< HEAD
                         <Gallery photos={photos} isActive={imageShow} getFirstColor={colors[0]} />
+=======
+                        <Gallery  img={imageToShow}  showImage={showImage}  photos={photos} isActive={imageShow} getFirstColor={colors[0]} />   
+                      
+
+>>>>>>> 97e4cbbc34762e5b0272f3d2a8bbf4f8895f6af3
 
                         <div>
                             {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}
                             {/* <ButtonWrapper>
                                 <ButtonSize buttons={size} ></ButtonSize>
-                            </ButtonWrapper> */}
-                            <ButtonColors palitrs={colors} onShow={onShow} ></ButtonColors>
+                            </ButtonWrapper> */}    
+                                <ButtonSize buttons={size} />
+                            <ButtonColors palitrs={colors}  ></ButtonColors>
                         </div>
                     </>
                 ) : <p>Loading....</p>
             }
-        </ContainerProduct>
+        </ContainerProduct>  
+   
+
+
+
+        </>
     )
+
 }
 
 

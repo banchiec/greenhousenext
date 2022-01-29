@@ -6,15 +6,20 @@ import ProductsService from './../../services/products.service'
 import { ContainerShowcase } from "./ShowCase.styled";
 import { SizeButton } from "../ShowCaseItem/ShowCaseItem.styled";
 
+<<<<<<< HEAD
 export const ShowCase = (props) => {
+=======
+
+
+export const ShowCase = () => {
+>>>>>>> 97e4cbbc34762e5b0272f3d2a8bbf4f8895f6af3
 
 
     const [productList, setProductList] = useState([]);
     const productService = new ProductsService()
 
-    const getProducts = async () => {
-
-        await productService
+    const getProducts =  () => {
+           productService
             .getProducts()
             .then((products) => {
                 setProductList(products?.data)
@@ -26,7 +31,8 @@ export const ShowCase = (props) => {
         getProducts()
     }, [])
 
-    return (
+    return (   
+
         <ContainerShowcase>
             {
                 productList ? (
@@ -39,7 +45,8 @@ export const ShowCase = (props) => {
                     <p>Loading</p>
                 )
             }
-        </ContainerShowcase>
+        </ContainerShowcase> 
+        
     )
 }
 
