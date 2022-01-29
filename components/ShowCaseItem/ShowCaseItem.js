@@ -1,9 +1,12 @@
-import { ContainerProduct, Category, SizeButton, ButtonWrapper, SelectSizeTitle, SelectColorTitle, ColorWrapper } from "./ShowCaseItem.styled";
+import { ContainerProduct, Category, SizeButton, ButtonWrapper, SelectSizeTitle, SelectColorTitle, ColorWrapper, ButtonCard } from "./ShowCaseItem.styled";
 import { Gallery } from "../Gallery/Gallery";
 import { ButtonColors } from "../ButtonColors/ButtonColors"; 
-import CategoriesServices from '../../services/categories.service'
+import CategoriesServices from '../../services/categories.service' 
 import { useEffect, useState } from "react"
-import { AdminPanel } from "../AdminPanel/AdminPanel";
+import { AdminPanel } from "../AdminPanel/AdminPanel";  
+import { ButtonSize } from "../ButtonSize/ButtonSize"; 
+ButtonCard
+
 
 export default function ShowCaseItem({ name, beloning, size, price, description, photos, colors }) {
     
@@ -33,22 +36,61 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     useEffect(() => {
         getCategories()
     }, [])
-   
-
-
-    const onShow = (e) => {      
-        console.log(e.target.name)
-        setImageShow(e.target.name)
-    }  
- 
     
 
-    const getFirstColor = (colors) => {
-        return colors[0]
-    }
+    const images = photos?.map((itemall) => itemall.url) 
+    console.log(images) 
 
-    return (
-        <ContainerProduct>
+    const [imageToShow, setImageToShow] = useState(images[0])  
+
+    const [lightboxDisplay, setLightBoxDisplay] = useState(false)  
+    
+    const showImage = (url) => {
+        setImageToShow(url);
+        setLightBoxDisplay(true)
+    }   
+
+    const hideLightBox = () => {
+        setLightBoxDisplay(false)
+    }  
+   
+
+    const showNext = (e) => {
+        e.stopPropagation();
+        let currentIndex = images.indexOf(imageToShow)
+        if (currentIndex >= images.length - 1) {
+            let loopsimg = props.photos.length - 1;
+            let nextImage = images[currentIndex - loopsimg];
+            setImageToShow(nextImage);
+            //setLightBoxDisplay(false);
+        } else {
+            let nextImage = images[currentIndex + 1];
+            setImageToShow(nextImage);
+        }
+    }  
+     
+
+    const showPrev = (e) => {
+        e.stopPropagation();
+        let currentIndex = images.indexOf(imageToShow);
+        if (currentIndex <= 0) {
+            let loopsimg = props.photos.length - 1;
+            let nextImage = images[currentIndex + loopsimg];
+            setImageToShow(nextImage);
+            // setLightBoxDisplay(false);
+        } else {
+            let nextImage = images[currentIndex - 1];
+            setImageToShow(nextImage);
+        }
+    };
+
+ 
+
+
+
+    return ( 
+        <>
+        <ContainerProduct> 
             {
                 category ? (
                     <>
@@ -57,7 +99,7 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
     
                         </div>
 
-                        <Gallery  photos={photos} isActive={imageShow} getFirstColor={colors[0]} />   
+                        <Gallery  img={imageToShow}  showImage={showImage}  photos={photos} isActive={imageShow} getFirstColor={colors[0]} />   
                       
 
 
@@ -65,15 +107,21 @@ export default function ShowCaseItem({ name, beloning, size, price, description,
                             {/* <SelectSizeTitle>SELECT  SIZE</SelectSizeTitle> */}
                             {/* <ButtonWrapper>
                                 <ButtonSize buttons={size} ></ButtonSize>
-                            </ButtonWrapper> */} 
-                            <AdminPanel/>
-                            <ButtonColors palitrs={colors} onShow={onShow} ></ButtonColors>
+                            </ButtonWrapper> */}    
+                                <ButtonSize buttons={size} />
+                            <ButtonColors palitrs={colors}  ></ButtonColors>
                         </div>
                     </>
                 ) : <p>Loading....</p>
             }
-        </ContainerProduct>
+        </ContainerProduct>  
+   
+
+
+
+        </>
     )
+
 }
 
 
